@@ -1,0 +1,26 @@
+{
+  "name": "zoo",
+  "version": "0.0.1",
+  "description": "share websocket between tabs",
+  "scripts": {
+    "build-server": "tsup  server/index.ts --out-dir dist/server",
+    "build-client": "tsup client/index.ts --out-dir dist/client --target es5",
+    "serve": "node dist/server/index.js"
+  },
+  "author": "erlangxk",
+  "dependencies": {
+    "@hono/node-server": "^1.13.1",
+    "@hono/node-ws": "^1.0.4",
+    "hono": "^4.6.3",
+    "tab-election": "^4.1.17"
+  },
+  "devDependencies": {
+    "@swc/core": "^1.7.26",
+    "@types/node": "^22.7.3",
+    "esbuild": "0.24.0",
+    "tsup": "^8.3.0",
+    "tsx": "^4.19.1",
+    "typescript": "^5.6.2",
+    "wscat": "^5.2.1"
+  }
+}
