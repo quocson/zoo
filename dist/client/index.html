@@ -1,0 +1,15 @@
+
+<html>
+<title>share ws socket</title>
+<script src="./index.global.js"></script>
+<script>
+    function send() {
+        const inputElement = document.querySelector("input[name='message']");
+        const message = inputElement.value;
+        inputElement.value = "";
+        sendData(message);
+    }
+</script>
+<input name="message" placeholder="input your message here"></input>
+<button onclick="send()">send</button>
+</html>
