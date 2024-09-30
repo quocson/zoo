@@ -2,9 +2,10 @@
   "name": "zoo",
   "version": "0.0.1",
   "description": "share websocket between tabs",
+  "type": "module",
   "scripts": {
-    "build-server": "tsup  server/index.ts --out-dir dist/server",
-    "build-client": "tsup client/index.ts --out-dir dist/client --target es5",
+    "build-server": "tsup  server/index.ts --out-dir dist/server --format esm",
+    "build-client": "tsup client/index.ts --out-dir dist/client --target es2022 --format iife",
     "serve": "node dist/server/index.js"
   },
   "author": "erlangxk",
