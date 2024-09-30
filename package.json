@@ -5,17 +5,17 @@
   "type": "module",
   "scripts": {
     "build-server": "tsup  server/index.ts --out-dir dist/server --format esm",
-    "build-client": "tsup client/index.ts --out-dir dist/client --target es2022 --format iife",
+    "build-client": "tsup client/index.ts --out-dir dist/client --target es2022 --format esm",
     "serve": "node dist/server/index.js"
   },
   "author": "erlangxk",
   "dependencies": {
     "@hono/node-server": "^1.13.1",
     "@hono/node-ws": "^1.0.4",
-    "hono": "^4.6.3",
-    "tab-election": "^4.1.17"
+    "hono": "^4.6.3"
   },
   "devDependencies": {
+    "tab-election": "^4.1.17",
     "@swc/core": "^1.7.26",
     "@types/node": "^22.7.3",
     "esbuild": "0.24.0",

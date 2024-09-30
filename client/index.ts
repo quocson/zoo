@@ -35,6 +35,6 @@ globalThis.addEventListener("unload", () => {
     tab.close();
 });
 
-globalThis.sendData= function(data: string) {
+export default function sendData(data: string) {
     tab.call("sendData", data);
 };
