@@ -8,9 +8,13 @@ lerna-debug.log*
 .pnpm-debug.log*
 
 dist/client/*.js
-dist/client/*.js.map
+dist/client/*.cjs
+dist/client/*.mjs
+
 dist/server/*.js
-dist/server/*.js.map
+dist/server/*.cjs
+dist/server/*.mjs
+
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
