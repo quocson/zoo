@@ -17,24 +17,25 @@ class WsClient {
     }
     sendData(data: string) {
         if (this.#connected) {
-            this.#ws.send(data);
+            this.#ws.send(JSON.stringify({action : "$default", data}));
         } else {
             throw new Error("Websocket not connected to server");
         }
     }
 }
-const url = "ws://localhost:3000/ws";
+const url = "wss://t8y3ubbm80.execute-api.ap-southeast-1.amazonaws.com/production/";
 
 tab.waitForLeadership(() => {
     return new WsClient(url, (data) => {
         console.log("Data received from server: ", data);
+        tab.send(data);
     });
 });
-
 globalThis.addEventListener("unload", () => {
     tab.close();
 });
 
+tab.addEventListener('message', event => console.log(`from leader: ${event.data}`));
 export default function sendData(data: string) {
     tab.call("sendData", data);
 };
