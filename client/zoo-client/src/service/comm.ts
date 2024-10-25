@@ -1,7 +1,7 @@
 'use client'
 import { Tab } from "tab-election";
-let t = { sendData: (d: string) => { }, addListener: (handler: (data: string) => any) => { }, init: false };
-export default function () {
+let t:{sendData:(s:string) => void, addListener:(handler: (data: string) => void) => void, init:boolean} = { sendData: () => {}, addListener: () => {}, init: false };
+const Comm = () => {
     if (typeof window === 'undefined' || typeof navigator === 'undefined')
         return t = { ...t, init: true };
     if (t.init) return t;    
@@ -40,7 +40,7 @@ export default function () {
     globalThis.addEventListener("unload", () => {
         tab.close();
     });
-    const handlers: ((data: string) => any)[] = [];
+    const handlers: ((data: string) => void)[] = [];
     const onMsg = (msg: string) => {
         handlers.forEach(h => h(msg));
     }
@@ -48,10 +48,11 @@ export default function () {
         console.log("Data received from leader: ", event.data);
         onMsg(event.data)
     });
-    const addListener = (handler: (data: string) => any) => handlers.push(handler);
+    const addListener = (handler: (data: string) => void) => handlers.push(handler);
 
     const sendData = (data: string) => {
         tab.call("sendData", data);
     };
     return t = { sendData, addListener, init: true };
 }
+export default Comm;
