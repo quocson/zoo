@@ -14,7 +14,7 @@ const ChatComponent = () => {
                 )) : <br/>                
             }
             
-            <input name="message" placeholder="input your message here" value={msgIn} onChange={e => setMsgIn(e.target.value)}></input>
+            <input name="message" className="text-gray-900" placeholder="input your message here" value={msgIn} onChange={e => setMsgIn(e.target.value)}></input>
             <button id="sendButton" onClick={e => sendData(msgIn)}>send</button>
         </div>
     );
