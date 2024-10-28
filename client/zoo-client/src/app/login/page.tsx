@@ -10,7 +10,7 @@ Amplify.configure({
       userPoolClientId: "66rkt2qrjlokagfl6ssc4of7p1",
       identityPoolId: "ap-northeast-1:887f92f3-1b5b-441b-9f42-0c72eb4109e1",
       loginWith: {
-        email: true,
+        username: true,
       },
       signUpVerificationMethod: "code",
       userAttributes: {
