@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import '@aws-amplify/ui-react/styles.css';
+import React from "react";
 
 
 const geistSans = localFont({
@@ -30,7 +31,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <React.StrictMode>
         {children}
+        </React.StrictMode>
       </body>
     </html>
   );
